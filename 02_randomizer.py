@@ -16,7 +16,7 @@ def randomStudent( givenList): # givenList is KREWES
   if teamNo == 1:
      print( random.choice( KREWES[ 'rex']) + " from Team Rex")
   if teamNo == 2:
-     print( random.choice( KREWES['endymion']) + " from Team Endymion")
+     print( random.choice( KREWES[ 'endymion']) + " from Team Endymion")
 
      
 randomStudent( 'rex')
