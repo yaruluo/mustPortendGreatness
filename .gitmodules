@@ -1,0 +1,3 @@
+[submodule "02_randomizer"]
+	path = 02_randomizer
+	url = https://github.com/yaruluo/02_randomizer.git
