@@ -1,3 +1,8 @@
+# Yaru Luo
+# SoftDev1 pd1
+# K#08 -- Lemme Flask You Sump’n
+# 2019-09-19
+
 from flask import Flask
 app = Flask(__name__) # create instance of class Flask
 
