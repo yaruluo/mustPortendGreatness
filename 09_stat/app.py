@@ -1,3 +1,8 @@
+# Yaru Luo
+# SoftDev1 pd1
+# K#09: ’Tis Not a Race -- But You Will Go Faster
+# 2019-09-20 
+
 from flask import Flask, render_template
 app = Flask(__name__)
 
