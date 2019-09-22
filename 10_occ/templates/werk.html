@@ -1,0 +1,42 @@
+<!
+Yaru Luo
+SoftDev1 pd1
+K#10 -- Jinja Training
+2019-09-24
+>
+
+
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Occupations</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="heading">
+      <h1>K#10 -- Jinja Tuning</h1>
+      <h3>Team Aiya!
+	<br>Team Roster: Yaru Luo & Amanda Zheng
+      </h3>
+      <h4>Returns a randomly selected occupation where the results are weighted by the percentage given.
+	</h4>
+    </div>
+
+    <div class="randOcc">
+      <br>
+      Lucky Occupation: {{ output }}
+    </div>
+
+    <div class="tablified">
+      <table>
+	{% for item in coll}
+	<tr>
+	  <th>{{ item }}</th>
+	  <th>{{ coll[ item] }}</th>
+	</tr>
+	{% endfor %}
+    </div>
+  </body>
+</html>
