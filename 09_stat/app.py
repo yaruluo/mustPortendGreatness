@@ -18,7 +18,8 @@ def test_tmplt():
     print( coll)
     return render_template('my_foist_template.html',
                             foo = "foooo",
-                            collection = coll)
+                            collection = coll
+    )
 
 if __name__ == "__main__":
     app.debug = True

@@ -30,13 +30,24 @@ K#10 -- Jinja Training
     </div>
 
     <div class="tablified">
+      <br>
+      <br>
       <table>
-	{% for item in coll}
 	<tr>
-	  <th>{{ item }}</th>
-	  <th>{{ coll[ item] }}</th>
+	  <th>Job Class</th>
+	  <th>Percentage</th>
+	</tr>
+	{% for item in coll %}
+	<tr>
+	  <td>{{ item }}</th>
+	  <td>{{ coll[item]}}</th>
 	</tr>
 	{% endfor %}
+	<tr>
+	  <th>Total</th>
+	  <th>99.8</th>
+	</tr>
+      </table>
     </div>
   </body>
 </html>

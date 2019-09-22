@@ -41,19 +41,19 @@ def randomOccupation():
 @app.route("/") # assign following fxn to run when route requested
 def hello_world():
     print(__name__+ "Norm")
-    return "Werk werk werk werk werk"
+    return "Werk werk werk werk werk" #default localhost page
 
 @app.route("/occupyflaskst")
 def init():
-    print("csving")
+    print("csving") 
     return render_template(
         'werk.html',
-        coll = dictionary,
-        output = randomOccupation()
+        coll = dictionary,   #for the tablified occupations list
+        output = randomOccupation() #for the lucky occupation
         )
-        
 
 
 if __name__ == "__main__":
+    #autopilot
     app.debug = True 
     app.run()
