@@ -47,7 +47,7 @@ def randomPick(l):
     di = list(l.keys())
     counta = 0
     countb = len(di)-1
-    if rand>99.8:
+    if rand > 99.8:
         return "unemployed"
     while l.get( di[ counta]) < rand and l.get( di[ countb]) > rand:
         counta += 1
