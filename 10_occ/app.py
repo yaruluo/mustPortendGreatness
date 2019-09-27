@@ -32,32 +32,32 @@ for item in r[ 0: len( r)]:
     encyclopedia[ key] = value
 
 #make into a dictionary
-def rangePercent( l):
-    di = list( l.keys())
-    l[ di[ 1]] = float( l.get( di[ 1]))
-    for k in range( 1, len( l.keys())):
-        l[ di[ k]] = round( float( l.get( di[ k]) + l.get( di[ k-1])), 1)
-    return l
-dictionary = rangePercent(dictionary)
+def rangePercent( givenList):
+    dict = list( givenList.keys())
+    givenList[ dict[ 1]] = float( givenList.get( dict[ 1]))
+    for key in range( 1, len( givenList.keys())):
+        givenList[ dict[ key]] = round( float( givenList.get( dict[ key]) + givenList.get( dict[ key - 1])), 1)
+    return givenList
+dictionary = rangePercent( dictionary)
 
 # uses binary search
-def randomPick(l):
-    rand = random.randint(1,1000)
-    rand = rand/10.0
-    di = list(l.keys())
+def randomPick( givenList):
+    rand = random.randint( 1,1000)
+    rand = rand / 10.0
+    dict = list( givenList.keys())
     counta = 0
-    countb = len(di)-1
+    countb = len( dict)-1
     if rand > 99.8:
         return "unemployed"
-    while l.get( di[ counta]) < rand and l.get( di[ countb]) > rand:
+    while givenList.get( dict[ counta]) < rand and givenList.get( dict[ countb]) > rand:
         counta += 1
         countb -= 1
-    if  l.get( di[ countb]) == rand:
-         return di[ countb]
-    if l.get( di[ counta]) >= rand:
-        return di[ counta]
+    if  givenList.get( dict[ countb]) == rand:
+         return dict[ countb]
+    if givenList.get( dict[ counta]) >= rand:
+        return dict[ counta]
     else:
-        return di[ countb + 1]
+        return dict[ countb + 1]
     
 coll = dictionary
 col = encyclopedia
