@@ -35,7 +35,7 @@ def login():
 def error0():
     return render_template( 'error.html', error = "username  invalid")
 
-@app.route('/badpw') # bad username
+@app.route('/badpw') # bad password
 def error1():
     return render_template( 'error.html', error = "password  invalid")
 
