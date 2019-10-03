@@ -15,6 +15,7 @@ Your (duo) job:
    - b) loads a welcome page, if the user is logged in.
 - Welcome page (for successful login) should have a logout button that goes to a separate route that will log the user out of the session.
 - When a user logs in, a session should be established with the username stored.
+- *Addendum: In the root of this flask app folder, make directory “doc” and store in it “sitemap.jpg” -- a scan of your KtS-based site map*
 - Name your main driver **app.py**
 - File this under **15_login** in your workshop. (Both Devos.)
 
