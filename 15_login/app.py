@@ -3,39 +3,41 @@
 # K#15
 # 2019-10-02 
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, session
 app = Flask(__name__)
 
-@app.route('/') # home pg: login
+# these are the session vars
+username = 'davidmholmes'
+password = 'apcs'
+app.secret_key = 'abc'
+
+@app.route( '/') # login page if no user logged in
 def hello_world():
-    print( "hello")
-    # for testing
-    print( "\n\n\n")
-    print( "***DIAG: this Flask obj ***")
-    print( app)
-    print( "***DIAG: request obj ***")
-    print( request)
-    print( "***DIAG: request.args ***")
-    print( request.args)
-    return render_template( 'welcome.html'
-    ) 
+    session.pop
+    print( session)
+    return render_template('login.html')
 
-
-
-dict = {
-    "username": "davidmholmes",
-    "password": "apcs"
-    }
-
-print( dict)
-
-
-
-@app.route('/welcome') # if login successful
+@app.route('/welcome') # checks if login successful
 def login():
-    if request.args
-    return( "hello")
+    print( request.args[ 'username'])
+    print( request.args['password'])
+    if request.args[ 'username'] != "davidmholmes":
+        return redirect('/badun')
+    if request.args[ 'password'] != "apcs": 
+        return redirect('/badpw')
+    else: # if login is successful
+        # session is activated!
+        session[ 'username'] = request.args[ 'username']
+        session[ 'password'] = request.args[ 'password']
+        return render_template('auth.html', un = session[ 'username'])
 
+@app.route('/badun') # bad username
+def error0():
+    return render_template( 'error.html', error = "username  invalid")
+
+@app.route('/badpw') # bad username
+def error1():
+    return render_template( 'error.html', error = "password  invalid")
 
 if __name__ == "__main__":
     app.debug = True

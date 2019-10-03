@@ -1,5 +1,5 @@
 <!
- Yaru Luo
+ Yaru Luo & Hongwei Chen
  SoftDev1 pd1
  K# -- Title
  yyyy-mm-dd
@@ -13,12 +13,13 @@
     <title>Login</title>
   </head>
   <body>
-    <h1>Team Bread Getters: Hongwei & Yaru</h1>
-    <form action="/auth">
+    <p> login failed because {{ error }}</p>
+    
+    <form action="/welcome">
       Username:<br>
       <input type="text" name="username"><br>
       Password:<br>
-      <input type="text" name="password">
+      <input type="password" name="password">
       <br>
       <input type="submit" value="Submit">
     </form>
