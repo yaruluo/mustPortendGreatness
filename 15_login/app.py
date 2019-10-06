@@ -13,7 +13,12 @@ app.secret_key = 'abc'
 
 @app.route( '/') # login page if no user logged in
 def hello_world():
-    session.pop
+    # if 'username' in session:
+    #      return redirect('/welcome')
+    # else:
+    session.pop('username')
+    session.pop('password')
+    #inSesh = False
     print( session)
     return render_template('login.html')
 
@@ -26,9 +31,10 @@ def login():
     if request.args[ 'password'] != "apcs": 
         return redirect('/badpw')
     else: # if login is successful
-        # session is activated!
+        # session is activated
         session[ 'username'] = request.args[ 'username']
         session[ 'password'] = request.args[ 'password']
+        print(session)
         return render_template('auth.html', un = session[ 'username'])
 
 @app.route('/badun') # bad username
