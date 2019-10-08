@@ -1,7 +1,7 @@
-#Clyde "Thluffy" Sinclair
-#SoftDev  
-#skeleton :: SQLITE3 BASICS
-#Oct 2019
+#Yaru Luo & Google
+#SoftDev pd1 
+#K#17 -- No Trouble
+#2019-10-07
 
 import sqlite3   #enable control of an sqlite database
 import csv       #facilitate CSV I/O
@@ -15,10 +15,33 @@ c = db.cursor()               #facilitate db ops
 #==========================================================
 
 # < < < INSERT YOUR POPULATE-THE-DB CODE HERE > > >
-print( db)
+command = "CREATE TABLE courses ( code TEXT, mark INTEGER, id INTEGER);"
+c.execute( command)
 
-command = ""          # test SQL stmt in sqlite3 shell, save as string
+with open( "data/courses.csv", "r") as courseCSV:
+    courseReader = csv.DictReader( courseCSV)
+    for row in courseReader:
+        command = ""
+        command += "INSERT INTO courses VALUES ('"
+        command += row[ 'code'] + "',"
+        command += row[ 'mark'] + ","
+        command += row[ 'id'] + ")"
+        c.execute( command)
+
+
+command = "CREATE TABLE students ( name TEXT, age INTEGER, id INTEGER);"
+# test SQL stmt in sqlite3 shell, save as string
 c.execute(command)    # run SQL statement
+
+with open( "data/courses.csv", "r") as courseCSV:
+    courseReader = csv.DictReader( courseCSV)
+    for row in courseReader:
+        command = ""
+        command += "INSERT INTO students VALUES ('"
+        command += row[ 'name'] + "',"
+        command += row[ 'age'] + ","
+        command += row[ 'id'] + ")"
+        c.execute( command)
 
 #==========================================================
 
