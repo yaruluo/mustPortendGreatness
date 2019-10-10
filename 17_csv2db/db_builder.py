@@ -29,19 +29,19 @@ with open( "data/courses.csv", "r") as courseCSV:
         c.execute( command)
 
 
-command = "CREATE TABLE students ( name TEXT, age INTEGER, id INTEGER);"
+newcommand = "CREATE TABLE students ( name TEXT, age INTEGER, id INTEGER);"
 # test SQL stmt in sqlite3 shell, save as string
-c.execute(command)    # run SQL statement
+c.execute( newcommand)    # run SQL statement
 
-with open( "data/courses.csv", "r") as courseCSV:
-    courseReader = csv.DictReader( courseCSV)
-    for row in courseReader:
-        command = ""
-        command += "INSERT INTO students VALUES ('"
-        command += row[ 'name'] + "',"
-        command += row[ 'age'] + ","
-        command += row[ 'id'] + ")"
-        c.execute( command)
+with open( "data/students.csv", "r") as studentCSV:
+    studentReader = csv.DictReader( studentCSV)
+    for row in studentReader:
+        newcommand = ""
+        newcommand += "INSERT INTO students VALUES ('"
+        newcommand += row[ 'name'] + "',"
+        newcommand += row[ 'age'] + ","
+        newcommand += row[ 'id'] + ")"
+        c.execute( newcommand)
 
 #==========================================================
 
