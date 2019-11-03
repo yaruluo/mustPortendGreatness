@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Yaru & David
+       SoftDev pd01
+       K20 -- CSS basics
+       2019-11-01f
+	 WORK FILE for CSS 	
+    -->
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>foo title</title>
+  </head>
+
+  <body>
+    <div class="heading">
+      <h1>h1 foo</h1>
+    </div>
+
+    <div class="main">
+
+      <div class="sidebar">
+	<h3>nav foo</h3>
+	<ul>
+	  <li><a href="">dis</a></li>
+	  <li><a href="">dat</a></li>
+	  <li><a href="">de udda ting</a></li>
+	</ul>
+      </div>
+
+      <div class="main-content">
+	<h2>main foo heading</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis sit amet nunc id interdum. Nullam in suscipit lectus, ut tempor neque. Cras scelerisque, dui vitae pulvinar lacinia, nisi felis accumsan lorem, sit amet volutpat neque risus eu justo. Maecenas sed posuere erat. In hac habitasse platea dictumst. Curabitur ligula mauris, consectetur id diam nec, tristique dignissim enim. Ut convallis tortor in ultricies finibus.
+	  <br><br>
+	  Suspendisse orci tortor, tincidunt vitae ante sit amet, mollis lobortis libero. Nulla facilisi. Nullam scelerisque enim lorem, sit amet aliquet orci luctus et. Mauris volutpat libero interdum interdum scelerisque. Aenean tincidunt in sem id elementum. Quisque quam lacus, malesuada a fringilla in, vulputate a tellus. In eget metus at erat varius aliquam. Curabitur pulvinar ultrices bibendum. Mauris quis varius elit. Donec congue lacus et ex sagittis, nec commodo nunc finibus. Aliquam erat volutpat.</p>
+      </div>
+      
+    </div>
+
+    <div class="footer">
+      Copyright &copy; 2016 Clyde "Thluffy" Sinclair
+    </div>
+
+  </body>
+
+  <style>
+    * {
+	font-family:"Arial";
+    }
+    .heading{
+	padding:1px;
+	color:white;
+	font-weight:bold;
+	background-color:#BDBDBD;
+	text-align:center;
+    }
+    body{
+	border:15px solid #656565;
+	background-color:gray;
+	margin:0px;
+    }
+    .sidebar ul{
+	list-style:none;
+    }
+    .sidebar a{
+	color:#9E9E9E;
+	font-weight:bold;
+	text-decoration:none;
+    }
+    .sidebar{
+	float:left;
+	margin-left:1%;
+    }
+    .main{
+	padding-right:5%;
+	position:relative;
+	background-color:#757575;
+    }
+    .main-content{
+	overflot:hidden;
+	float:left;
+	width:70%;
+	padding-left:10%;
+    }
+    .footer{
+	clear:both;
+	background-color:#575757;
+	padding:10px;
+	text-align:right;
+	color:#BDBDBD;
+    }
+  </style>
+
+</html>

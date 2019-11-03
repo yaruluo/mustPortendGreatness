@@ -57,12 +57,12 @@ c.execute(
 
 #calculate average mark after grouping results by id
 c.execute("""
-            SELECT name, students.id, avg(mark)
-            FROM students, courses
+            SELECT name, students.id, avg(mark) 
+            FROM students, courses 
             WHERE students.id = courses.id
             GROUP BY students.id
             """)
-rows = c.fetchall()
+rows = c.fetchall() # converts the executed data into a tuple
 for row in rows:
     #print statement used to display each student's name, id, and avg
     print(("{}, {}: {}").format(row[0], row[1], row[2]))
