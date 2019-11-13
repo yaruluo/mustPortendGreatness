@@ -8,17 +8,16 @@ from urllib.request import urlopen
 import json
 app = Flask(__name__)
 
-@app.route("/")
+@app.route( "/")
 def root():
     request = urlopen(
         'https://api.nasa.gov/planetary/apod?api_key=YZpRGglnNl1Ud54e7aCcFRuPvAMrtgG3NYcEw5UB'
         )
     response = request.read()
     data = json.loads( response)
-    pic = data[ "request"]
-    print( pic)
+    print( data)
     return render_template("index.html",
-                           pic = getStars())
+                           pic = data)
 
 if __name__ == "__main__":
     app.debug = True
