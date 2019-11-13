@@ -4,19 +4,21 @@
 # 2019-11-12
 
 from flask import Flask, request, render_template
-import urllib, json
+from urllib.request import urlopen
+import json
 app = Flask(__name__)
 
 @app.route("/")
 def root():
-    request = urllib.request.urlopen(
+    request = urlopen(
         'https://api.nasa.gov/planetary/apod?api_key=YZpRGglnNl1Ud54e7aCcFRuPvAMrtgG3NYcEw5UB'
         )
     response = request.read()
     data = json.loads( response)
-    return render_template( 'index.html',
-                            pic = data[ 'url']
-                            )
+    pic = data[ "request"]
+    print( pic)
+    return render_template("index.html",
+                           pic = getStars())
 
 if __name__ == "__main__":
     app.debug = True
