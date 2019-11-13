@@ -3,13 +3,13 @@
 # K24 -- A RESTful Journey Skyward
 # 2019-11-12
 
-from flask import Flask, render_template
+from flask import Flask, request, render_template
 import urllib, json
 app = Flask(__name__)
 
 @app.route("/")
 def root():
-    request = urllib.urlopen(
+    request = urllib.request.urlopen(
         'https://api.nasa.gov/planetary/apod?api_key=YZpRGglnNl1Ud54e7aCcFRuPvAMrtgG3NYcEw5UB'
         )
     response = request.read()
