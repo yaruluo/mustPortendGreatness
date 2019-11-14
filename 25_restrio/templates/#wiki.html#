@@ -1,0 +1,7 @@
+{% block content %}
+    <h1>{{ to_render[ 'displaytitle'] }}</h1>
+    <h3>{{ to_render[ ]}}</h3>
+    <img src="{{ to_render['image'] }}"><br>
+    <a href="/">back</a>
+{% endblock content%}
+ 
