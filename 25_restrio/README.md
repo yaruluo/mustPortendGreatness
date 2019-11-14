@@ -10,4 +10,4 @@ Due R 2019-11-14, 08:00, EST.
 6. Repeat steps 2-4.
 
 Demo usage of all three APIs in a single flask app
-File this under **25_restrio_<teamNamePortendingGreatness>** in your workshop.
+File this under **25_restrio_< teamNamePortendingGreatness >** in your workshop.
