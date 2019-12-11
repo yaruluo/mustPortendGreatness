@@ -35,4 +35,3 @@ var gcd = function( a, b){
 var randomStudent = function(){
   return students[Math.floor(Math.random() * students.length)];
 };
-};
