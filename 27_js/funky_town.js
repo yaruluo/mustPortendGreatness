@@ -1,8 +1,8 @@
 /*
-Yaru Luo
-SoftDev1 pd1
-K27 -- Sequential Progression
-2019-12-11    
+  Yaru Luo
+  SoftDev1 pd1
+  K27 -- Sequential Progression
+  2019-12-11    
 */
 
 var students = ["alnasserA", "caoT", "chenA", "chenH", "chenJ", "dossE", "elahiT", "galakhovI",
@@ -11,11 +11,12 @@ var students = ["alnasserA", "caoT", "chenA", "chenH", "chenJ", "dossE", "elahiT
                 "xiedengD", "zhangE", "zhangM", "zhengA"]
 // factorial
 var fact = function(num){
-	if (num < 2){
-		return 1 
-	} else {
-		return num * fact(num -1)
-	}
+    if (num < 2){
+	return 1 
+	
+    } else {
+	return num * fact(num -1)
+    }
 }
 // fibonacci
 var fib = function( num){
@@ -33,5 +34,5 @@ var gcd = function( a, b){
 };
 // random student
 var randomStudent = function(){
-  return students[Math.floor(Math.random() * students.length)];
+    return students[Math.floor(Math.random() * students.length)];
 };
