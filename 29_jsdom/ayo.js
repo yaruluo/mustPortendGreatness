@@ -3,26 +3,6 @@
 //K29 -- Sequential Progression III: Season of the Witch
 //2019-12-12
 
-// var changeHeading = function( ){
-//     console.log
-//     var header = document.getElementById( 'h');
-//     header.innerHTML = String( this.innerText);
-// };
-
-// var revertHeading = function(){
-//     var header = document.getElementById( 'h');
-//     header.innerHTML = 'Hello World!';
-// };
-
-// var removeItem = function( item){
-//     if( typeof(item) == 'undefined'){
-// 	console.log( item);
-// 	item = document.getElementsByTagName( 'li')[ 0];
-//     }
-//     console.log( 'removed item')
-//     item.remove();
-// };
-
 var lis = document.getElementsByTagName( 'li');
 for( var i=0; i<lis.length; i++){
     console.log( lis[ i]);
@@ -35,23 +15,12 @@ for( var i=0; i<lis.length; i++){
 	this.remove()
     });
 }
+var revertHeading = function(){
+    var header = document.getElementById( 'h');
+    header.innerHTML = 'Hello World!';
+};
 
-var fib = function(n){
-    if (n == 0) return 0;
-    else if (n < 3) return 1;
-    else return fib(n-1) + fib(n-2);
-}
-
-var index = 0;
-var fibbutton = document.getElementById("fb");
-fibbutton.addEventListener("click", () => addFib(index));
-var fibarray = [0,1,1];
-var addFib = function( input){
-    console.log( input);
-    document.getElementById( "fiblist").innerHTML += index + ". " + fib( input) + "<br>"
-    index++;
-}
-
+// WORD
 var thebutton = document.getElementById("b");
 thebutton.addEventListener( "click", () => addItem());
 var addItem = function() {
@@ -60,7 +29,63 @@ var addItem = function() {
     var item = document.createElement( "li");
     item.innerHTML = "WORD";
     list.appendChild( item);
-    item.addEventListener( 'click', () => removeItem( item));
+    item.addEventListener( 'click', function(){ this.remove()});
 }
 
+// fibonacci
+var fib = function(num){
+    if (num == 0) return 0;
+    else if (num < 3) return 1;
+    else return fib(num-1) + fib(num-2);
+}
+var index = 1;
+var fibbutton = document.getElementById("fb");
+fibbutton.addEventListener("click", () => addFib(index));
+// var fibarray = [0,1,1];
+var addFib = function( input){
+    console.log( input + " fib #: " + fib( input));
+    document.getElementById( "fiblist").innerHTML += index + ". " + fib( input) + "<br>"
+    index++;
+}
 
+// factorial
+var fact = function( num){
+    if( num < 2){
+	return 1 
+    }
+    return num * fact( num - 1)
+}
+var factIndex = 1;
+var factbutton = document.getElementById( 'factB');
+factbutton.addEventListener( 'click', () => addFact( factIndex));
+var addFact = function( input){
+    console.log( input + " fact #: " + fact( input));
+    document.getElementById( 'factlist').innerHTML += factIndex + ". " + fact( input) + "<br>"
+    factIndex++;
+}
+
+// triangular numbers: objects that can form an equilateral triangle
+var tri = function( n){
+    return( n * ( n+1) / 2);
+};
+var triIndex = 1;
+var tributton = document.getElementById( 'tb');
+tributton.addEventListener( 'click', () => addTri( triIndex));
+var addTri = function( input){
+    console.log( input + " triangular #: " + tri( input));
+    document.getElementById( 'trilist').innerHTML += triIndex + ". " + tri( input) + "<br>"
+    triIndex++;
+}
+
+// the lazy caterer's sequence: max number of pieces formed when slicing a pancake w n cuts
+var slices = function( n){
+    return( n * ( n+1)) / 2 + 1;
+};
+var pancakeIndex = 1;
+var lcbbutton = document.getElementById( 'lcb');
+lcbbutton.addEventListener( 'click', () => addPancakeSlices( pancakeIndex));
+var addPancakeSlices = function( input){
+    console.log( "cuts: " + input + ", # of slices: " + slices( input));
+    document.getElementById( 'pancakelist').innerHTML += pancakeIndex + ". " + slices( input) + "<br>"
+    pancakeIndex++;
+}
