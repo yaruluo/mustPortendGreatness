@@ -3,16 +3,18 @@
 //K29 -- Sequential Progression III: Season of the Witch
 //2019-12-12
 
+
 var lis = document.getElementsByTagName( 'li');
 for( var i=0; i<lis.length; i++){
     console.log( lis[ i]);
-    lis[ i].addEventListener( 'mouseover', function(){
-	h.innerHTML = this.innerHTML;
+    lis[ i].addEventListener( 'mouseover', function(){  // when mouse goes over an item in list,
+	h.innerHTML = this.innerHTML;                   // heading changes at top into the item text
     });
-    lis[ i].addEventListener( 'mouseout', () => revertHeading());
-    lis[ i].addEventListener( 'click', function(){
+    lis[ i].addEventListener( 'mouseout',               // when mouse no longer over the list item,
+			      () => revertHeading());   // heading changes back to default "Hello World!"
+    lis[ i].addEventListener( 'click', function(){      // when list item is clicked,
+	this.remove()                                   // it is removed from the DOM
 	console.log( 'removed item')
-	this.remove()
     });
 }
 var revertHeading = function(){
@@ -21,15 +23,15 @@ var revertHeading = function(){
 };
 
 // WORD
-var thebutton = document.getElementById("b");
-thebutton.addEventListener( "click", () => addItem());
+var thebutton = document.getElementById("b");          // retrieves The button element by id name
+thebutton.addEventListener( "click", () => addItem()); 
 var addItem = function() {
-    var list = document.getElementById( "thelist");
+    var list = document.getElementById( "thelist"); 
     console.log(list);
-    var item = document.createElement( "li");
+    var item = document.createElement( "li");    // (when button is pushed) adds new list element in HTML
     item.innerHTML = "WORD";
-    list.appendChild( item);
-    item.addEventListener( 'click', function(){ this.remove()});
+    list.appendChild( item);     // writes text in the HTML element
+    item.addEventListener( 'click', function(){ this.remove()}); // remove if clicked
 }
 
 // fibonacci
@@ -38,10 +40,9 @@ var fib = function(num){
     else if (num < 3) return 1;
     else return fib(num-1) + fib(num-2);
 }
-var index = 1;
+var index = 1;  // current list number on the fib list
 var fibbutton = document.getElementById("fb");
 fibbutton.addEventListener("click", () => addFib(index));
-// var fibarray = [0,1,1];
 var addFib = function( input){
     console.log( input + " fib #: " + fib( input));
     document.getElementById( "fiblist").innerHTML += index + ". " + fib( input) + "<br>"
@@ -55,7 +56,7 @@ var fact = function( num){
     }
     return num * fact( num - 1)
 }
-var factIndex = 1;
+var factIndex = 1; // current list number on the factorial list
 var factbutton = document.getElementById( 'factB');
 factbutton.addEventListener( 'click', () => addFact( factIndex));
 var addFact = function( input){
@@ -68,7 +69,7 @@ var addFact = function( input){
 var tri = function( n){
     return( n * ( n+1) / 2);
 };
-var triIndex = 1;
+var triIndex = 1; // current list number on the triangular number list
 var tributton = document.getElementById( 'tb');
 tributton.addEventListener( 'click', () => addTri( triIndex));
 var addTri = function( input){
@@ -81,7 +82,7 @@ var addTri = function( input){
 var slices = function( n){
     return( n * ( n+1)) / 2 + 1;
 };
-var pancakeIndex = 1;
+var pancakeIndex = 1; // // current list number on the lc list
 var lcbbutton = document.getElementById( 'lcb');
 lcbbutton.addEventListener( 'click', () => addPancakeSlices( pancakeIndex));
 var addPancakeSlices = function( input){
