@@ -3,34 +3,37 @@
 //K29 -- Sequential Progression III: Season of the Witch
 //2019-12-12
 
-// var theArray = document.getElementsByTagName( 'li');
-
-// var changeHeading = function(){
+// var changeHeading = function( ){
+//     console.log
 //     var header = document.getElementById( 'h');
-//     for( let counter = 0; counter<array.length; counter++){
-// 	var arrItem = theArray[ i]
-// 	console.log( arrItem)
-// 	arrItem.addEventListener( 'mouseover', function)()
-// 	header.innerHTML = __________
-//     });
+//     header.innerHTML = String( this.innerText);
 // };
 
-var removeItem = function(){
-    
-    console.log( 'sionfasl')
-    var listItem = document.getElementById( 'fiblist');
-    item = document.createElement( 'li')
-    item.addEventListener( 'click', function(){
-	item.remove();
-    });
-};
+// var revertHeading = function(){
+//     var header = document.getElementById( 'h');
+//     header.innerHTML = 'Hello World!';
+// };
+
+// var removeItem = function( item){
+//     if( typeof(item) == 'undefined'){
+// 	console.log( item);
+// 	item = document.getElementsByTagName( 'li')[ 0];
+//     }
+//     console.log( 'removed item')
+//     item.remove();
+// };
 
 var lis = document.getElementsByTagName( 'li');
 for( var i=0; i<lis.length; i++){
-    // lis[ i].addEventListener( 'mouseover', changeHeading);
-    // lis[ i].addEventListener( 'mouseout',
-    // 			      );
-    lis[ i].addEventListener( 'click', removeItem);
+    console.log( lis[ i]);
+    lis[ i].addEventListener( 'mouseover', function(){
+	h.innerHTML = this.innerHTML;
+    });
+    lis[ i].addEventListener( 'mouseout', () => revertHeading());
+    lis[ i].addEventListener( 'click', function(){
+	console.log( 'removed item')
+	this.remove()
+    });
 }
 
 var fib = function(n){
@@ -43,7 +46,6 @@ var index = 0;
 var fibbutton = document.getElementById("fb");
 fibbutton.addEventListener("click", () => addFib(index));
 var fibarray = [0,1,1];
-
 var addFib = function( input){
     console.log( input);
     document.getElementById( "fiblist").innerHTML += index + ". " + fib( input) + "<br>"
@@ -52,11 +54,13 @@ var addFib = function( input){
 
 var thebutton = document.getElementById("b");
 thebutton.addEventListener( "click", () => addItem());
-
 var addItem = function() {
     var list = document.getElementById( "thelist");
     console.log(list);
     var item = document.createElement( "li");
     item.innerHTML = "WORD";
     list.appendChild( item);
+    item.addEventListener( 'click', () => removeItem( item));
 }
+
+
