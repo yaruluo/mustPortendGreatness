@@ -3,7 +3,6 @@
 //K29 -- Sequential Progression III: Season of the Witch
 //2019-12-12
 
-
 var lis = document.getElementsByTagName( 'li');
 for( var i=0; i<lis.length; i++){
     console.log( lis[ i]);
@@ -30,11 +29,11 @@ var addItem = function() {
     console.log(list);
     var item = document.createElement( "li");    // (when button is pushed) adds new list element in HTML
     item.innerHTML = "WORD";
-    list.appendChild( item);     // writes text in the HTML element
-    item.addEventListener( 'click', function(){ this.remove()}); // remove if clicked
+    list.appendChild( item);                            // writes text in the HTML element
+    item.addEventListener( 'click', function(){ this.remove()});   // remove if clicked
 }
 
-// fibonacci
+// fibonacci - recursive
 var fib = function(num){
     if (num == 0) return 0;
     else if (num < 3) return 1;
@@ -47,6 +46,17 @@ var addFib = function( input){
     console.log( input + " fib #: " + fib( input));
     document.getElementById( "fiblist").innerHTML += index + ". " + fib( input) + "<br>"
     index++;
+}
+
+var fibarray=[ 0, 1, 1];
+
+// fibonacci - dynamic programming
+var fib2 = function( n){
+    if( fibarray[ n]){
+	return fibarray[ n];
+    }
+    fibarray.push( fibarray[ n-1] + fibarray[ n-2]);
+    return fibarray[ n];
 }
 
 // factorial
