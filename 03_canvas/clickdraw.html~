@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <script src="clickdraw.js"></script>
+    <canvas height=“600” width=“600” id=“slate”>
+    </canvas>
+    <button type="button">Clear screen</button>
+  </body>
+</html>
