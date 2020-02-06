@@ -18,11 +18,13 @@ var clear = document.getElementById( 'clear');
 var toggle = document.getElementById( 'toggle');
 var mode = 'box';
 
+// clears screen
 clear.addEventListener( 'click', function( e){
     ctx.fillStyle = "#fff";
     ctx.fillRect( 0, 0, c.width, c.height);
 });
 
+// toggle bw a box and dot
 toggle.addEventListener( 'click', function( e){
     if( mode == "box"){
 	mode = "dot";
@@ -33,6 +35,7 @@ toggle.addEventListener( 'click', function( e){
     toggle.innerHTML = mode;
 });
 
+// draws the box or dot
 c.addEventListener( 'click', function( e){
     var xcor = e.offsetX;
     var ycor = e.offsetY;
