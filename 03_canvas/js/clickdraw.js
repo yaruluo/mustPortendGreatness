@@ -15,8 +15,7 @@ var mode = 'box';
 
 clear.addEventListener( 'click', function( e){
     e.preventDefault()
-}
-		      )
+});
 
 toggle.addEventListener( 'click', function( e){
     if( mode == "box"){
@@ -25,8 +24,8 @@ toggle.addEventListener( 'click', function( e){
     else{
 	mode = "box";
     }
-}
-		       )
+    toggle.innerHTML = mode;
+});
 
 c.addEventListener( 'click', function( e){
     var xcor = e.offsetX;
@@ -41,6 +40,5 @@ c.addEventListener( 'click', function( e){
 	ctx.stroke();
 	ctx.fill();
     }
-}
-		  )
+});
 
