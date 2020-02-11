@@ -21,7 +21,7 @@ c.addEventListener("click", function(e) {
     ctx.arc(e.clientX - rect.x, e.clientY - rect.y, CIRCLE_RADIUS, 0, Math.PI * 2);
     ctx.closePath();
 
-    ctx.fill();
+    ctx.fill(); // dot
 
     if(firstClick) {
 	firstClick = false;
@@ -29,7 +29,7 @@ c.addEventListener("click", function(e) {
 	ctx.beginPath();
 	ctx.moveTo(e.clientX - rect.x, e.clientY - rect.y);  // last specified point
 	ctx.lineTo(oldX, oldY); // creates new point line to the point from the last specified point
-	ctx.stroke();
+	ctx.stroke(); // actually draws path 
 	ctx.closePath();
     }
     oldX = e.clientX - rect.x;
