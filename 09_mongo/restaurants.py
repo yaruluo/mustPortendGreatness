@@ -47,7 +47,7 @@ def findGrade(zip, grade):
   for x in results:
     print(x["name"])
 
-#findGrade("11374", "A")
+findGrade("11374", "A")
 
 def findScore(zip, score):
   '''All restaurants in a specified zip code with a score below a specified threshold.'''
