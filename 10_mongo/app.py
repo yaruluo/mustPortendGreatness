@@ -17,7 +17,7 @@ with open( 'history.json', 'r') as file:
     catalog.insert_one( loads( line))
 
 def findEvent( date):
-  '''All events in a specified date.'''
+  '''On this date...'''
   results = catalog.find( { 'date': date})
   print( 'Results Found: {}'.format( results.count()))
   print()
@@ -25,3 +25,4 @@ def findEvent( date):
     print( x[ 'name'])
 
 findEvent( '2012/12/31')
+findEvent( '-279')
