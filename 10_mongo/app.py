@@ -3,6 +3,12 @@
 # K#10: Import/Export Bank
 # 2020-02-29
 
+# dataset: historical events in American history
+# description: 
+# link: http://www.vizgr.org/historical-events/search.php?format=json&begin_date=-3000000&end_date=20151231&lang=en
+# Pro Tip: You can change begin_date and end_date in URL to get events in a specific interval. 
+
+
 from bson.json_util import loads
 from pymongo import MongoClient
 
