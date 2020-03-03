@@ -12,33 +12,20 @@
 from bson.json_util import loads
 from pymongo import MongoClient
 
-client = MongoClient()
-db = client.test
-yarn = db.yarn
-if( yarn.count()==0):
-  file.open( 'history.json', 'r')
+db.catalog.drop() 
+catalog = db.catalog
+with open( 'history.json', 'r') as file:
   content = file.readlines()
   for line in content:
-    yarn.insert_one( loads( line))
-  for item in db.find({}):
-    print( item)
+    catalog.insert_one( loads( line))
 
+def findEvent( date):
+  '''On this date...'''
+  results = catalog.find( { 'date': date})
+  print( 'Results Found: {}'.format( results.count()))
+  print()
+  for x in results:
+    print( x[ 'name'])
 
-
-# db.catalog.drop() 
-# catalog = db.catalog
-# with open( 'history.json', 'r') as file:
-#   content = file.readlines()
-#   for line in content:
-#     catalog.insert_one( loads( line))
-
-# def findEvent( date):
-#   '''On this date...'''
-#   results = catalog.find( { 'date': date})
-#   print( 'Results Found: {}'.format( results.count()))
-#   print()
-#   for x in results:
-#     print( x[ 'name'])
-
-# findEvent( '2012/12/31')
-# findEvent( '-279')
+findEvent( '2012/12/31')
+findEvent( '-279')
