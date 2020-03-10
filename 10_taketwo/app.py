@@ -1,12 +1,13 @@
 from bson.json_util import loads
 from pymongo import MongoClient
 
-client = MongoClient("localhost", 27017)
+client = MongoClient()
 db = client.yarn
 
 info = db.info
 with open( 'data.json', 'r') as file:
     content = file.readlines()
+<<<<<<< HEAD
     if( info.count() == 0):
         for line in content:
             info.insert_one( loads( line))
@@ -41,6 +42,8 @@ db = client.yarn
 info = db.info
 with open( 'data.json', 'r') as file:
     content = file.readliens()
+=======
+>>>>>>> 2adf7bf3fb1c505cadd141d5c34f5b86238eeeca
     if( info.count() == 0):
         for line in content:
             info.insert_one( loads( line))
