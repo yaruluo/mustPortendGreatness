@@ -6,7 +6,7 @@ db = client.yarn
 
 info = db.info
 with open( 'data.json', 'r') as file:
-    content = file.readliens()
+    content = file.readlines()
     if( info.count() == 0):
         for line in content:
             info.insert_one( loads( line))
