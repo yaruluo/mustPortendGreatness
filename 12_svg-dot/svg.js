@@ -35,12 +35,11 @@ pic.addEventListener( "click", function( e){
 	l.setAttribute( 'x2', e.offsetX);
 	l.setAttribute( 'y2', e.offsetY);
 	l.setAttribute( 'stroke', 'black');
-	pic.appendChild(l);
+	pic.appendChild( l);
     }
 
     oldX = e.offsetX;
     oldY = e.offsetY;
-    
 
 });
 
@@ -49,6 +48,14 @@ pic.addEventListener( "click", function( e){
 document.getElementById('clear').addEventListener("click", function(e) {
     firstClick = true;
     console.log("clear");
-    // e.preventDefault();
+
+    var r = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    r.setAttribute( 'x', 0);
+    r.setAttribute( 'y', 0);
+    r.setAttribute( 'width', 500);
+    r.setAttribute( 'height', 500);
+    r.setAttribute( 'fill', 'white');
+
+    pic.appendChild( r);
     
 });
