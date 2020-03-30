@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sass!</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Alex+Brush&display=swap" rel="stylesheet">
+    <style>
+      body{
+	  font-family: Helvetica, sans-serif;
+	  padding: 15px;
+      }
+      code, pre{
+	  background-color: #eee;
+      }
+      .column {
+	  float: left;
+	  width: 33.33%;
+	  color: white;
+	  text-align: center;
+      }
+      .row:after {
+	  content: "";
+	  display: table;
+	  clear: both;
+      }
+      @media screen and (max-width: 600px) {
+	  .column {
+	      width: 100%;
+	  }
+      }
+      h2, h1{
+	  color: #E9A3C4;
+      }
+      .HTMLorCSS{
+	  display: grid;
+	  grid-template-columns: repeat(2, 1fr);
+	  grid-template-columns: 45% 45%;
+	  grid-gap: 20px;
+      }
+    </style>
+  </head>
+  
+  <body>
+
+    <h1 style="font-family:'Alex Brush', cursive; font-size: 65px;">
+      Sass
+    </h1>
+    <h4 style="color:grey;">Team
+      <span style="color:#BADA55">#BADA55</span>
+      : Justin and Yaru
+    </h4>
+
+    <br><h2>What is Sass?</h2>
+    <p>
+      Sass stands for Syntactically Awesome Stylesheets.
+      <br><br>Sass is a CSS preprocessor.
+    <p style="margin-left: 1em;">Preprocessors extend CSS by adding special features like variables, nested rules, and mixins to regular CSS.</p>
+    Makes coding simpler and more efficient.
+    
+    </p>
+
+    <br><h2>Installing Sass</h2>
+    <p>
+      Installing on a Mac OS C (Homebrew):
+      <pre>brew install sass/sass/sass</pre>
+      Installing anywhere (Node.js):
+      <pre>npm install -g sass</pre>
+      Installing on Windows (Chocolatey):
+      <pre>choco install sass</pre>
+      After you finished installing Sass on the command line, run <code>sass --version</code> to make sure it is installed properly. It should include <code>1.25.3</code>
+    </p>
+
+    <br><h2>Sass vs. SCSS</h2>
+    <p>Sass can be written in two different ways, with SASS syntax and with SCSS syntax. Overall, they are quite similar, but SASS uses more whitespace, while SCSS uses brackets and resembles CSS</p>
+
+    <br><h2>Why Use Sass? (Simple example)</h2>
+    <p>Let’s say you want to create a website with these three main colors:
+      <div class="row">
+	<div class="column" style="background-color:#333333;">#333333</div>
+	<div class="column" style="background-color:#FFC0CB;">#FFC0CB</div>
+	<div class="column" style="background-color:#BADA55;">#BADA55</div>
+      </div>
+      <br>Instead of typing these HEX values a bunch of times, you can use Sass and store them as variables.
+    </p>
+
+    <br><h2>Variables</h2>
+    <p>
+      Variables are a way to store information that can be re-used later.
+      <br><br>Variables can store all the types supported by CSS (numbers, strings, colors) and other SASS-specific values (booleans, null, maps, function references).
+      <br><br>Variable declaration syntax: <code>$&ltvariable>:&ltvalue></code>
+    </p>
+    
+    <div class="HTMLorCSS">
+      <p>SCSS:</p>
+      <p>CSS:</p>
+      </div>
+    <div class="HTMLorCSS">
+      <pre>
+	
+      // declaring the variables
+      $primary1: #333333;
+      $primary2: #FFC0CB;
+      $primary3: #BADA55;
+      $fontsize: 18px;
+
+      // using the variables
+      header{
+        color: $primary2;
+      }
+      body{
+        color: $primary1;
+        font-size: $fontsize;
+      }
+      </pre>
+      <pre>
+	
+	header{
+          color: #FFC0CB;
+	}
+	body{
+	  color: #333333;
+	}
+      </pre>
+    </div>
+
+    
+    <br><h2>Nesting</h2>
+    <p>
+      Nesting is a shortcut to group selectors.
+      <br><br>Instead of writing many lines for an element, you enclose a selector inanother selector.
+      <br><br>Many CSS properties have the same prefix, and with Sass you can write them as nested properties.
+    </p>
+    <div class="HTMLorCSS">
+      <p>SCSS:</p>
+      <p>CSS:</p>
+      </div>
+    <div class="HTMLorCSS">
+    <pre>
+      
+      body{
+        color: $primary1;
+        font: {
+          family: Helvetica, sans-serif;
+          size: $fontsize;
+          weight: bold;
+        };
+        text: {
+          align: center;
+          transform: lowercase;
+          overflow: hidden;
+        }
+      }
+    </pre>
+    <pre>
+      
+      body {
+        color: #333333;
+        font-family: Helvetica, sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: lowercase;
+        text-overflow: hidden;
+      }
+    </pre>
+    </div>
+
+    <br><h2>Import</h2>
+    <p>
+      The @import directive allows you to include the content of one file in another (similar to the CSS @import directive).
+      <br><br>More efficient than the CSS @import because in CSS, an extra HTTP request is created each time its called but in Sass no extra call is required at runtime.
+      
+      <div class="HTMLorCSS">
+	<pre>
+
+	// foundation/_code.scss
+	code{
+	  padding: .25em;
+	  line-height: 0;
+	}
+	</pre>
+      <pre>
+	
+	// style.scss
+	@import 'foundation/code.scss'
+      </pre>
+      </div>
+      All the code in the code.scss file in the foundation repo is automatically included in style.scss now.
+      </p>
+    
+    <br><h2>Mixins</h2>
+    <p>
+      The @mixin directive lets you create a block of code that groups CSS declarations to be reused throughout the website.
+      <pre>
+	
+	@mixin default{
+    	  font-size: $fontsize;
+	  width: 100%;
+	  padding: 10px;
+	  color: $primary3;
+	}
+      </pre>
+      <br>The @include directive is used to include a mixin in a selector.
+      <pre>
+
+	p {
+	  @include default;
+	}
+      </pre>
+      The above code compiles to:
+      <pre>
+	p {
+	  font-size: 18px;
+	  width: 100%;
+	  padding: 10px;
+	  color: #BADA55;
+	}
+      </pre>
+      <br>Mixins accept arguments, so you can pass variables to a mixin.
+      <pre>
+
+	@mixin colored( $color){
+	  color: $color;
+	}
+
+	p {
+	  @include colored( $primary2);
+	}
+      </pre>
+    </p>
+    
+    <br><h2>Extend</h2>
+    <p>
+      Syntax: <code>@extend &ltselector></code>
+      <br><br>Tells Sass that one selector inherits the styles of another.
+      <br><br>The @extend directive is useful if you have almost identically styled elements that only differ in some small details.
+      <br><br>This is different from the @include directive in mixins because @extend updates style rules that contain the selector to contain the extending selectorf but mixins copy styles into the current style rule.
+      <div class="HTMLorCSS">
+      <p>SCSS:</p>
+      <p>CSS:</p>
+      </div>
+    <div class="HTMLorCSS">
+      <pre>
+	
+	.first{
+	  background-color: $primary3;
+	}
+	
+	.second{
+	  @extend .firstp;
+	  font-style: italic;
+	}
+      </pre>
+      <pre>
+	
+	.first, .second {
+	  background-color: #FFC0CB;
+	}
+	
+	.second {
+	  background-color: #ff748c;
+	}
+      </pre>
+      </div>
+    
+    <br><h2>Comparison and arithmetic operators</h2>
+    <p>
+      Operators like +, -, *, /, >, <=, etc. perform standard operations in Sass.
+      <br><br>The addition operator is cool because it can also be used to concatenate strings.
+      <br><br>Division also works for variables.
+      <br><br>Note: It only works for numbers with compatible numbers.
+      <pre>
+	
+	h2{
+	  font-size: 5px + 2em; // error incompatible units
+	
+	  font-size: 5px + 2; // 7px
+	}
+      </pre>
+    </p>
+    
+    <br><h2>Functions</h2>
+    <p>
+      SASS allows for functions using the <code>@function</code> call.
+      <br><br>Functions can take parameters and output results using <code>@return</code>.
+    </p>
+    <pre>
+      
+      @function pow( $base, $exponent){
+        $result: 1;
+        @for $_ from 1 through $exponent{
+          $result: $result * $base;
+        }
+        @return $result;
+      }
+
+      main{
+        font-size: pow( 3,3) * 1px; // font-size: 8px
+      }
+    </pre>
+    <p>Sass contains many built-in modules also, like color modules, list, map, math, selector, and string.</p>
+    <pre>
+      
+      .firstp{
+        background-color: $primary2;
+      }
+
+      .secondp{
+        background-color: darken( $primary2, 15%);
+      }
+    </pre>
+
+    
+    <br><h2>Try it out yourself!</h2>
+
+    <p class="sassmeister" data-gist-id="5b4143d659508763f6a66b9a319223ed" data-height="480" data-theme="tomorrow"><a href="https://www.sassmeister.com/gist/5b4143d659508763f6a66b9a319223ed">Play with this gist on SassMeister.</a></p><script src="https://cdn.sassmeister.com/js/embed.js" async></script>
+
+    <br><h2>More practice:</h2>
+    <ol>
+      <li>Go to: https://glitch.com/edit/#!/sass-softdev?path=public/style.scss:20:39
+      <li>Toggle the “Show” dropdown to be “Next to the Code” 
+      <br>Follow along with style.scss under the public repo
+      <li>Click “Remix to edit” if you want to make your own mutable copy
+    </ol>
+    
+    <br><h2>Sources</h2>
+    <ul>
+      <li>https://www.w3schools.com/sass/sass_intro.asp
+      <li>http://thesassway.com/articles/sass-vs-scss-which-syntax-is-better
+      <li>https://css-tricks.com/sass-vs-less/
+      <li>https://sass-lang.com/install
+      <li>https://sass-lang.com/guide
+    </ul>
+
+</body>
+
+</html>
