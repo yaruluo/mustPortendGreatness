@@ -1,4 +1,4 @@
-// Yaru Luo
+// Yaru 
 // SoftDev pd1
 // K13: Ask Circles [Change || Die]
 // 2020-03-31
@@ -23,7 +23,6 @@ var draw = function(e) {
     var direction = Math.floor(Math.random() * 6.2832);
     c.setAttribute("dx", 10*Math.sin(direction));
     c.setAttribute("dy", 10*Math.cos(direction));
-    c.addEventListener('click', moveSome); // add fxn
     pic.appendChild(c);
   }
 };
@@ -49,27 +48,30 @@ var clear = function(){
   animating = false;
 }
 
-var moveSome = function(e) {
-  e.target.setAttribute("cx", parseInt(e.target.getAttribute("cx")) + parseInt(e.target.getAttribute("dx")));
-  e.target.setAttribute("cy", parseInt(e.target.getAttribute("cy")) + parseInt(e.target.getAttribute("dy")));
-  if (e.target.getAttribute("cx") > 490 || e.target.getAttribute("cx") < 10){
-    e.target.setAttribute("dx", -1 * e.target.getAttribute("dx"))
-  }
-  if (e.target.getAttribute("cy") > 490 || e.target.getAttribute("cy") < 10){
-    e.target.setAttribute("dy", -1 * e.target.getAttribute("dy"))
-  }
-}
-
-/*var animate = function() {
-  if (!animating) {animating = true;}
-  while (animating){
-    for each (var kid in pic.childNodes) {
-      moveSome(kid);
+move_button.addEventListener('click', function(e) {
+    console.log( 'here');
+    for (i = 0; i < pic.children.length; i++){
+	child = pic.children[i];
+	console.log( child);
+	child.setAttribute( 'cx', child.getAttribute( 'cx')+1);
+	child.setAttribute( 'cy', child.getAttribute( 'cy')+1);
     }
-    id=window.requestAnimationFrame(animate);
+
+    
+  // e.target.setAttribute("cx", parseInt(e.target.getAttribute("cx")) + parseInt(e.target.getAttribute("dx")));
+  // e.target.setAttribute("cy", parseInt(e.target.getAttribute("cy")) + parseInt(e.target.getAttribute("dy")));
+  // if (e.target.getAttribute("cx") > 490 || e.target.getAttribute("cx") < 10){
+  //   e.target.setAttribute("dx", -1 * e.target.getAttribute("dx"))
+  // }
+  // if (e.target.getAttribute("cy") > 490 || e.target.getAttribute("cy") < 10){
+  //   e.target.setAttribute("dy", -1 * e.target.getAttribute("dy"))
+  // }
+  if (id != 0){ //animation
+    id = window.requestAnimationFrame(move);
   }
-}*/
+});
+
 
 pic.addEventListener('click', draw);
 clear_button.addEventListener('click', clear);
-move_button.addEventListener('click', move);
+//move_button.addEventListener('click', move);

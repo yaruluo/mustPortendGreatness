@@ -1,0 +1,32 @@
+Team Cabu
+Yaru && Coby
+SoftDev1 pd1
+K#15 -- Capture Bubble Toil Trouble
+2020-04-02
+
+1:
+When you click on a table cell, an alert pops up with the character's name in the table cell
+
+2:
+Q: When user clicks on a cell, in what order will the pop-ups appear?
+- the clicked cell's (td) innerHTML
+- the the row's (tr) innerHTML
+- the table's innerHTML
+
+3:
+Q: What will happen when next line is uncommented?
+  // e.stopPropagation();
+- only the first alert (the table's innerHTML) pops up
+
+- i have no idea what's going to happen
+// Q: When user clicks on a cell, in what order will the pop-ups appear?
+- the table's innerHTML, the character's name, the row's innerHTML
+
+4:
+order: the table, tr, and then td pop up
+Q: What will happen when next line is uncommented?
+  //e.stopPropagation();
+only the table's innerHTML pops up
+
+Q: Does the order in which the event listeners are attached matter?
+No
